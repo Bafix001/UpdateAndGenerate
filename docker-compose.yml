@@ -1,0 +1,16 @@
+
+
+services:
+  frontend:
+    build: ./client
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./Api_Web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production

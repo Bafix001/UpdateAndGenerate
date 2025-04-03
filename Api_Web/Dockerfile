@@ -1,4 +1,3 @@
-
 FROM node:18
 
 # Définir le répertoire de travail
@@ -11,8 +10,8 @@ RUN npm install --production
 # Copier le reste des fichiers
 COPY . .
 
-# Exposer le port 3000
+# Exposer le port 3000 (le port utilisé par ton serveur backend)
 EXPOSE 3000
 
-# Lancer le serveur
+# Démarrer le serveur Node.js
 CMD ["node", "server.js"]

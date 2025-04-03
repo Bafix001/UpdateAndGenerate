@@ -7,6 +7,8 @@ services:
       - "80:80"
     depends_on:
       - backend
+    networks:
+      - app-network
 
   backend:
     build: ./Api_Web
@@ -14,3 +16,9 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -17,12 +17,6 @@ app.use(cors({
     credentials: true
 }));
 
-// Ajoute la directive Content-Security-Policy dans les en-têtes HTTP
-app.use((req, res, next) => {
-    // Modifie la CSP pour permettre l'usage de styles en ligne (unsafe-inline)
-    res.setHeader("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline';");
-    next();
-  });
 
 // Middleware CSP
 app.use((req, res, next) => {

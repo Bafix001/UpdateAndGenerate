@@ -27,7 +27,7 @@ export default {
       downloadLink: "",
       fileKey: 0,
       isLoading: false,
-      apiUrl: process.env.VUE_APP_API_URL || 'http://localhost:3000/api', // Ajout de apiUrl
+      apiUrl: process.env.VUE_APP_API_URL || '/api', // Ajout de apiUrl
     };
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
 
         this.message = response.data.message || 'Fichier traité avec succès !';
         if (response.data.fileUrl) {
-          this.downloadLink = `http://localhost:3000${response.data.fileUrl}`;
+          this.downloadLink = `${this.apiUrl}/${response.data.fileUrl.replace(/^\/+/, '')}`;
         }
 
         this.file = null;

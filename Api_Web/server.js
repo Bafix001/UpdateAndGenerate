@@ -53,6 +53,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Erreur serveur' });
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Serveur démarré sur http://localhost:${port}`);
 });
+
